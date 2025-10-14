@@ -1,0 +1,35 @@
+// Java solution
+
+public class Solution {
+    public static int[] printNos(int x) {
+        // Write Your Code Here
+        if(x<1) {
+          return new int[0]; 
+    }
+        int[] res=new int[x];
+        fillArrRecursively(x,res,x-1);
+        return res;
+    }
+
+    public static void fillArrRecursively(int val,int[] arr,int idx) {
+        if(val>0) { // Base case
+            fillArrRecursively(val-1,arr,idx-1);      // Recursive call
+            arr[idx]=val;
+        }
+    public static void main(String[] args) {
+        int n = 5;
+        int[] ascendingArray = printNos(n);
+        System.out.println("Ascending array for n=" + n + ": " + Arrays.toString(ascendingArray));
+    }
+}
+
+
+My approach:
+1. Basically if we want to print from 1 to n means we can simply use loops to print.
+2. In case if we r asked to print without using loop,then how can we actually implement that?
+    That's where recursion comes.
+Actually i used a helper function fillArrRecursively to add elements into the array in ascending order(can also changed to descending order by placing arr[idx]=val this before making recursive call)
+
+For n=5, the result should look like [1,2,3,4,5]. main method will call printNos method in that i created a result array and passed the n, array result and index(x-1) to the helper function and,
+
+it performs recursion till the base condition met. On unwinding process the elements are correctly assigned to the respective index position and the result array is returned finally...
