@@ -1,0 +1,24 @@
+import java.util.ArrayList;
+public class Solution {
+    static boolean searchMatrix(ArrayList<ArrayList<Integer>> mat, int target) {
+        // Write your code here.
+        for(ArrayList<Integer> row : mat) {
+            if(row.contains(target)) {
+                return true;
+            }
+        }
+        return false;
+    }
+  public static void main(String[] args) {
+    ArrayList<ArrayList<Integer>> mat = new ArrayList<>();
+    mat.add(1,2,3);
+    mat.add(4,5,6);
+    mat.add(7,8,9);
+    int target=9;
+    searchMatrix(mat,target);
+}
+}
+
+My approach:
+
+Simply iterating through each row of the 2d matrix and using contains method to check whether the target is present in that row. If yes, it will return true or else it will return false.
