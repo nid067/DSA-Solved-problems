@@ -1,0 +1,54 @@
+DAY 3
+
+Problem statement
+Given an integer ‘n’, return first n Fibonacci numbers using a generator function.
+
+Example:
+Input: ‘n’ = 5
+
+Output: 0 1 1 2 3
+
+Explanation: First 5 Fibonacci numbers are: 0, 1, 1, 2, and 3.
+Note:
+You don't need to print anything. Just implement the given function.
+
+
+// Java solution
+
+public class Solution {
+    public static int[] generateFibonacciNumbers(int n) {
+        // Write your code here.
+        if(n==0) {
+            return new int[0];
+        }
+        if(n==1) {
+            return new int[]{0};
+        }
+        int[] res=new int[n];
+        res[0]=0;
+        res[1]=1;
+        
+        for(int i=2;i<n;i++) {
+            res[i]=res[i-1]+res[i-2];
+        }
+        return res;
+    }
+  public static void main(String[] args) {
+    int n=5;
+    System.out.println(generateFibonacciNumbers(n));
+}
+}
+
+
+My approach:
+1. First i need to handle the base case, what should i do if n is 0 or 1?
+  in case 0 means i should return a empty array.
+  in case 1 means i should return a array of size 1 with 0 as value because 0 is the first fibonacci number.
+
+2. Since the return type is int[] array so i created a array with the size to hold n numbers. and added the first two fib numbers 0 and 1 to the array.
+3. Also the expected time complexity is O(n), so i decided to use for loop to iterate the remaining n-2 positions and fill up with the respective elements using:
+      res[i]= res[i-1]+res[i-2]
+4. Finally i returned the array res which contains the first n fib numbers
+
+
+Did some mistakes initially and rectified it afterwards. Eager to solve more problems... Any suggestions on optimizing code or any approach, feel free to reach me out.. 🙂
