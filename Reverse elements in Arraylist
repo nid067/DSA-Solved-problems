@@ -1,0 +1,62 @@
+// DAY 4
+
+
+Your task is to reverse an array of integers.
+
+EX:
+Input:
+[1,2,3]
+Output:
+[3,2,1]
+
+Java solution:
+class Result {
+
+    /*
+     * Complete the 'reverseArray' function below.
+     *
+     * The function is expected to return an INTEGER_ARRAY.
+     * The function accepts INTEGER_ARRAY a as parameter.
+     */
+
+    public static List<Integer> reverseArray(List<Integer> a) {
+    // Write your code here
+        List<Integer> lst= new ArrayList<>();
+        for(int i=a.size()-1;i>=0;i--) {
+            lst.add(a.get(i));
+        }
+        return lst;
+
+    }
+}
+
+public class Solution {
+    public static void main(String[] args) throws IOException {
+        BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
+        BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter(System.getenv("OUTPUT_PATH")));
+
+        int arrCount = Integer.parseInt(bufferedReader.readLine().trim());
+
+        List<Integer> arr = Stream.of(bufferedReader.readLine().replaceAll("\\s+$", "").split(" "))
+            .map(Integer::parseInt)
+            .collect(toList());
+
+        List<Integer> res = Result.reverseArray(arr);
+
+        bufferedWriter.write(
+            res.stream()
+                .map(Object::toString)
+                .collect(joining(" "))
+            + "\n"
+        );
+
+        bufferedReader.close();
+        bufferedWriter.close();
+    }
+}
+
+
+My approach:
+
+Mainly i picked to solve this problem because i was much familiar with reversing the numbers in array but not with arraylist. I iterated the arraylist from the end and added to the new arraylist
+"lst" and finally returned it.
